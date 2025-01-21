@@ -19,7 +19,7 @@ namespace PruebaTecnicaTrainee
                 Console.WriteLine();
             }
         }
-        public static int LeerEntrada(int min, int max)
+        public static int leerEntrada(int min, int max)
         {
             while (true)
             {
@@ -49,10 +49,10 @@ namespace PruebaTecnicaTrainee
                 Console.Clear();
                 Console.WriteLine("Reservación de asientos");
                 Console.Write("Introduce la fila del asiento (1-10): ");
-                int fila = LeerEntrada(1, asientos.GetLength(0)) - 1;
+                int fila = leerEntrada(1, asientos.GetLength(0)) - 1;
 
                 Console.Write("Introduce la columna del asiento (1-10): ");
-                int columna = LeerEntrada(1, asientos.GetLength(1)) - 1;
+                int columna = leerEntrada(1, asientos.GetLength(1)) - 1;
 
                 if (asientos[fila, columna] == 'l')
                 {

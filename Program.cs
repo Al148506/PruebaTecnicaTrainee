@@ -1,12 +1,7 @@
 ﻿//Interfaz Inicial del programa
 using PruebaTecnicaTrainee;
-using System;
-using System.Linq.Expressions;
-using System.Security.Cryptography;
 bool flag = false;
 char[,] asientos = new char[10, 10];
-int min = 1;
-int max = 10;
 Metodos.llenarAsientos(asientos);
 while (!flag)
 {
@@ -15,8 +10,7 @@ while (!flag)
     Console.WriteLine("1. Reservar");
     Console.WriteLine("2. Ver reservaciones");
     Console.WriteLine("3. Salir");
-    int opcion = Metodos.LeerEntrada(1, 3);
-    int opcionIntento = 0;
+    int opcion = Metodos.leerEntrada(1, 3);
     switch (opcion)
     {
         case 1:
