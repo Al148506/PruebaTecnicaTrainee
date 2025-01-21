@@ -30,7 +30,7 @@ namespace PruebaTecnicaTrainee
                 Console.WriteLine($"Por favor, introduzca un número válido entre {min} y {max}:");
             }
         }
-        public static void llenarAsientos (char[,] asientos)
+        public static void llenarAsientos(char[,] asientos)
         {
             for (int i = 0; i < asientos.GetLength(0); i++)
             {
@@ -41,5 +41,34 @@ namespace PruebaTecnicaTrainee
             }
         }
 
+        public static void reservarAsiento(char[,] asientos)
+        {
+            bool reservando = true;
+            while (reservando)
+            {
+                Console.Clear();
+                Console.WriteLine("Reservación de asientos");
+                Console.Write("Introduce la fila del asiento (1-10): ");
+                int fila = LeerEntrada(1, asientos.GetLength(0)) - 1;
+
+                Console.Write("Introduce la columna del asiento (1-10): ");
+                int columna = LeerEntrada(1, asientos.GetLength(1)) - 1;
+
+                if (asientos[fila, columna] == 'l')
+                {
+                    asientos[fila, columna] = 'x';
+                    Console.WriteLine("El asiento se ha reservado de forma exitosa.");
+                }
+                else
+                {
+                    Console.WriteLine("El asiento no está disponible.");
+                }
+
+                Console.WriteLine("¿Desea reservar otro asiento? (s/n)");
+                string? respuesta = Console.ReadLine()?.ToLower();
+                reservando = respuesta == "s";
+            }
+
+        }
     }
 }

@@ -15,40 +15,12 @@ while (!flag)
     Console.WriteLine("1. Reservar");
     Console.WriteLine("2. Ver reservaciones");
     Console.WriteLine("3. Salir");
-    int opcion = Convert.ToInt32(Console.ReadLine());
+    int opcion = Metodos.LeerEntrada(1, 3);
     int opcionIntento = 0;
     switch (opcion)
     {
         case 1:
-            do
-            {
-                Console.WriteLine("Introduce la fila del asiento que quieres reservar");
-                int fila = Metodos.LeerEntrada(min,max ) - 1;
-                Console.WriteLine("Introduce la columna del asiento que quieres reservar");
-                int columna = Metodos.LeerEntrada(min, max) - 1;
-
-                if (asientos[fila, columna] == 'l')
-                {
-                    asientos[fila, columna] = 'x';
-                    Console.WriteLine("El asiento se ha reservado de forma exitosa");
-                    Console.WriteLine("Oprima 1 si quiere resevar otro asiento o cualquier otra tecla si desea volver al menu principal");
-                    opcionIntento = Convert.ToInt32(Console.ReadLine());
-                }
-                else
-                {
-                    Console.WriteLine("El asiento no esta disponible, oprima 1 si quiere resevar otro asiento o cualquier otra tecla si desea volver al menu principal");
-                    opcionIntento = Convert.ToInt32(Console.ReadLine());
-                    if (opcionIntento == 1)
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-            } while (opcionIntento == 1);
-
+            Metodos.reservarAsiento(asientos);
             break;
         case 2:
             Metodos.mostrarAsientos(asientos);
